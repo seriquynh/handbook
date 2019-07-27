@@ -4,14 +4,6 @@
     $ ssh -i ~/.ssh/keyname username@hostname
     $ ssh -o "PubkeyAuthentication=yes" -i ~/.ssh/keyname username@hostname
 
-### Manage users and groups
-
-    $ sudo adduser username
-    $ sudo su username
-    $ sudo group add admin
-    $ sudo usermod --append --groups admin username # Append "username" user to "admin" group
-    $ sudo usermod -aG admin username
-
 ### Check the current host name
 
 ```bash
