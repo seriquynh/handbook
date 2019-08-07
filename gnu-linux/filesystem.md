@@ -1,4 +1,28 @@
 
+The Linux Directory Structure
+
+    /bin
+    /boot
+    /cdrom
+    /dev
+    /etc
+    /home
+    /lib
+    /lost+found
+    /media
+    /mnt
+    /opt
+    /proc
+    /run
+    /sbin
+    /srv
+    /tmp
+    /usr
+        /bin
+        /lib
+        /sbin
+    /var
+
 ### / - The Root Directory
 
 Everything on the Linux system is located under the / directory, known as the root directory.
@@ -39,3 +63,52 @@ Each Linux file system has a lost+found directory. If the file system crashes, a
 
 ### /media - Removable Media
 
+This directory contains subdirectories where removable media devices inserted into the computer are mounted. There are some common devices including: CD, HDD, USB,...
+
+### /mnt - Temporary Mount Points
+
+This is where system administrators mounted temporary file systems while using them. For example, if you’re mounting a Windows partition to perform some file recovery operations, you might mount it at /mnt/windows.
+
+### /opt - Optional Packages
+
+This directory contains subdirectories for optional software packgages that are commonly proprietary.
+
+### /proc - Kernel & Process Files
+
+This directory is similar to /dev directory because it doesn't contain standard files. It contains special files that represent system and process information.
+
+### /root - Root Home Directory
+
+The home directory for the root user is located at /root instead of /home/root.
+
+### /run - Application State Files
+
+The /run directory is fairly new, and gives applications a standard place to store transient files they require like sockets and process IDs. These files can't be stored in /tmp because the files inisde /tmp may be deleted.
+
+### /sbin - System Administration Binaries
+
+This directory is similar to /bin directory. It contains essential binaries that are generally intended to be run by the root user for system administration.
+
+### /selinux - SELinux Virtual File System
+
+If your Linux distribution uses SELinux for security (Fedora and Red Hat, for example), this directory contains special files used by SELinux. Ubuntu doesn't has /selinux directory.
+
+### /srv - Service Data
+
+This directory contains “data for services provided by the system.” If you were using the Apache HTTP server to serve a website, you’d likely store your website’s files in a directory inside the /srv directory.
+
+### /tmp - Temporary Files
+
+All applications store temporary files in this directory. These files are automatically deleted whenever the system is restared or any time by utilities.
+
+### /usr - User Binaries & Read-Only Data
+
+This directory contains applications and files used by users.
+
+/usr/bin ~ /bin
+/usr/lib ~ /lib
+/usr/sbin ~ /usr/sbin
+
+### /var - Variable Data Files
+
+This directory is writable counterpart to the /usr directory, which must be read-only in normal operation.
