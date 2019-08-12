@@ -1,5 +1,17 @@
 
-### cp
+### cd - Change Directory
+
+Change the shell working directory.
+
+```bash
+cd other/source # Relative paths
+cd /path/to/other/source # Absolute paths
+cd - # Navigate to the last directory you were working in.
+cd ~ # or just cd Navigate to the current user's home directory.
+cd .. # Go to the parent directory of current directory (mind the space between cd and .. )
+```
+
+### cp - Copy
 
 Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
 
@@ -12,9 +24,9 @@ $ # Copy all directories within contents of the source directory to the dest dir
 $ cp /path/to/source/** /path/to/dest/
 ```
 
-### pwd
+### pwd - Print Working Directory
 
-Print Working Directory - Print the name of the current working directory.
+Print the name of the current working directory.
 
 ```bash
 $ cd /tmp
