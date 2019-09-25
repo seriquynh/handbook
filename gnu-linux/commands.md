@@ -24,6 +24,19 @@ cp /path/to/source.txt /path/to/absolute.txt
 cp /path/to/source/** /path/to/dest/
 ```
 
+### ls - List
+
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+```bash
+# -a --all do not ignore entries starting with .
+# -A --almost-all do not list implied . and ..
+# -l  use a long list format
+ls -la
+ls -lA
+```
+
 ### pwd - Print Working Directory
 
 Print the name of the current working directory.
