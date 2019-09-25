@@ -24,6 +24,18 @@ cp /path/to/source.txt /path/to/absolute.txt
 cp /path/to/source/** /path/to/dest/
 ```
 
+### history
+
+Display or manipulate the history list.
+
+```bash
+# 2021  vim .bashrc
+# 2022  clear
+# 2023  ls --help
+# 2024  ls -lA
+!2024 # Execute the command "ls -lA" from history
+```
+
 ### ls - List
 
 List information about the FILEs (the current directory by default).
