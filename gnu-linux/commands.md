@@ -24,6 +24,22 @@ cp /path/to/source.txt /path/to/absolute.txt
 cp /path/to/source/** /path/to/dest/
 ```
 
+### df
+
+Show information about the file system on which each FILE resides, or all file systems by default.
+
+```bash
+df -h
+```
+
+### Free
+
+Show information about memory and swap.
+
+```bash
+free -h
+```
+
 ### history
 
 Display or manipulate the history list.
