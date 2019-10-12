@@ -1,0 +1,12 @@
+
+- Configure SSH connections (Eg. Prevent loging with password, deny login as root by password,...)
+- Secure network connections (Eg. accept suitable ports, block the others)
+    - firewals: iptables, iptables-save, iptable-restore, iptables-persistent
+    - fail2ban
+- Add two new users:
+  - admin: manage services and members.
+  - deployer: manage applications only.
+- Install applications stacks (Eg. LEMP)
+- Configure to run applications.
+- Deploy applications manually
+- Configure CI/CD
