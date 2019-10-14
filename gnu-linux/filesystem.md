@@ -112,3 +112,5 @@ This directory contains applications and files used by users.
 ### /var - Variable Data Files
 
 This directory is writable counterpart to the /usr directory, which must be read-only in normal operation.
+
+https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained
