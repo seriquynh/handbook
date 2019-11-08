@@ -58,9 +58,10 @@ List information about the FILEs (the current directory by default).
 Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
 
 ```bash
-# -a --all do not ignore entries starting with .
-# -A --almost-all do not list implied . and ..
-# -l  use a long list format
+# -a --all                     do not ignore entries starting with .
+# -A --almost-all              do not list implied . and ..
+# -l                           use a long list format
+#    --group-directories-first group directories before files;
 ls -la
 ls -lA
 ```
