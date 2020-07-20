@@ -22,3 +22,13 @@
     #!/bin/bash
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+    
+### Create a new sudo user
+
+```bash
+# Create a new user.
+adduser <username>
+
+# Add created user to sudo group.
+usermod -aG sudo <username>
+```
