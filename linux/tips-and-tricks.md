@@ -3,6 +3,7 @@
 
     $ ssh -i ~/.ssh/keyname username@hostname
     $ ssh -o "PubkeyAuthentication=yes" -i ~/.ssh/keyname username@hostname
+    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 ### Check the current host name
 
@@ -22,7 +23,7 @@
     #!/bin/bash
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-    
+
 ### Create a new sudo user
 
 ```bash
