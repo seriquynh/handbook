@@ -1,8 +1,4 @@
-
 https://sourcemaking.com/design_patterns
-
-- [Design Patterns PHP](https://github.com/xuanquynh/design-patterns-php)
-- [Design Patterns Python](https://github.com/xuanquynh/design-patterns-python)
 
 ## Creational
 
