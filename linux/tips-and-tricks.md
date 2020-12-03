@@ -50,3 +50,11 @@ sudo mysqladmin -S /var/run/mysqld/mysqld.sock shutdown
 
 sudo service mysql start
 ```
+
+### Create a new MySQL database with a specific user
+
+```
+CREATE USER 'someone'@'localhost' IDENTIFIED BY 'secret';
+CREATE DATABASE somedatabase;
+GRANT ALL PRIVILEGES ON somedatabase.* TO 'someone'@'localhost';
+```
