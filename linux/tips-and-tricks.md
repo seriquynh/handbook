@@ -33,3 +33,20 @@ adduser <username>
 # Add created user to sudo group.
 usermod -aG sudo <username>
 ```
+
+### Reset MySQL root password.
+
+```bash
+sudo service mysql stop
+sudo mkdir /var/run/mysqld
+sudo chown mysql: /var/run/mysqld
+sudo mysqld_safe --skip-grant-tables --skip-networking &
+mysql -uroot mysql
+
+# UPDATE mysql.user SET authentication_string=PASSWORD('ENTER_YOUR_PASSWORD_HERE'), plugin='mysql_native_password' WHERE User='root';
+# EXIT;
+
+sudo mysqladmin -S /var/run/mysqld/mysqld.sock shutdown
+
+sudo service mysql start
+```
