@@ -5,8 +5,7 @@ COMMAND=$1
 if [ "$COMMAND" == 'create' ];
 then
     USERNAME=$2
-    CHECK=$(cat /etc/passwd | grep $USERNAME)
-    if [ -z "$CHECK" ];
+    if [ `sed -n "/^$USERNAME/p" /etc/passwd` ];
     then
         echo "Kiem tra account $USERNAME: Tai khoan chua ton tai."
         useradd $USERNAME
