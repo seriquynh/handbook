@@ -49,6 +49,23 @@ modprobe - Modules Probe - To add or remove a module by name
 | Sub-Item | Type | Description |
 |----------|------|-------------|
 | integer | DIR | This directory contains information of process ID. The directory name is exactly process ID.
+| /proc/cmdline | FILE | Store the parameters passed to the kernel at the moment it started.
+| /proc/cpuinfo | FILE | Store CPU details.
+| /proc/meminfo | FILE | Store memory details including swap, cache, physical memory size and available free space.
+| /proc/uptime | FILE | Store uptime (seconds elapsed since boot) for individule cpus.
+| /proc/version | FILE | Store linux kernel name, version and compiler that is used to build it.
+| /proc/vmstat | FILE | Store virtual memory details including page faults, range,...
+| /proc/swaps | FILE | Store swap information such as name, size,...
+| /proc/mounts | FILE | Store all mounts in-use.
+| /proc/crypto | FILE | This file lists all installed cryptographic ciphers used by the Linux kernel, including additional details for each
+| /proc/loadavg | FILE | load average in regard to both the CPU and IO over time
+| /proc/modules | FILE | Store all modules that are loaded into the system in runtime.
+| /proc/mdstat | FILE | Store current information for multi-disk and RAID configurations.
+| /proc/partitions | FILE | Store partition block allocation information.
+| /proc/devices | FILE | Store various character and block devices currently configured (not including devices whose modules are not loaded).
+| /proc/diskstats | FILE | Store I/O statistics of block devices.
+| /proc/filesystems | FILE | Store a filesystem type list currently supported by the kernel
+| /proc/interrupts | FILE | Store the number of interrupts per IRQ on the x86 architecture.
 
 /sys
 - Shows a representation of the physical devices in the machine
