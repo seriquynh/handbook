@@ -38,3 +38,17 @@ modprobe - Modules Probe - To add or remove a module by name
 
     $ modprobe module_name # Add a module
     $ modprobe [-r | --remove] module_name # Remove a module
+
+## Know the hardware
+
+### /proc
+- Proc file system (procfs) is virtual file system created on fly when system boots and is dissolved at time of system shut down.
+- It contains the useful information about the processes that are currently running, it is regarded as control and information centre for kernel.
+- The proc file system also provides communication medium between kernel space and user space.
+
+| Sub-Item | Type | Description |
+|----------|------|-------------|
+| integer | DIR | This directory contains information of process ID. The directory name is exactly process ID.
+
+/sys
+- Shows a representation of the physical devices in the machine
