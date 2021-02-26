@@ -28,3 +28,72 @@
 | Atl + b | Move the cursor back the begin of the previous word.
 | Ctrl + f | Move the cursor to the next position (same as right arrow button).
 | Ctrl + b | Move the cursor back the previous position (same as left arrow button).
+
+### history
+
+This command is able to keep track of command lines that is executed by user in terminal.
+
+bash has `.bash_history`, zsh has `.zsh_history`
+
+```bash
+seriquynh@ubuntu:~$ history # Print typed and executed lines in format "number line" such as "2035 clear"
+seriquynh@ubuntu:~$ history 5 # Print 5 previous lines
+seriquynh@ubuntu:~$ !2035 # Re-execute line that has number 2035
+seriquynh@ubuntu:~$ history -c # Delete history
+seriquynh@ubuntu:~$ HISTTIMEFORMAT="%c " history # Use $HISTTIMEFORMAT to display each history line with datetime
+```
+
+### pwd - Print Working Directory
+
+Print the name of the current working directory.
+
+```bash
+seriquynh@ubuntu:~$ cd /tmp
+seriquynh@ubuntu:~$ pwd # Print the value of $PWD variable
+seriquynh@ubuntu:~$ mkdir test # Make "test" directory
+seriquynh@ubuntu:~$ ln -s /tmp/test /tmp/test2 # Create a symbolic link
+seriquynh@ubuntu:~$ cd test2
+seriquynh@ubuntu:~$ pwd # -L is used by default
+seriquynh@ubuntu:~$ pwd -P # Print the physical directory without any symbolic links
+```
+
+### uname
+
+Print certain system information
+
+| Option | Output Example | Description |
+|--------|----------------|-------------|
+| uname -a, --all | | Print all information.
+| uname -s, --kernel-name | Linux | Print the kernel name.
+| uname -n, --nodename | web-01 | Print the the network hostname.
+| uname -r, --kernel-release | 4.4.0-87-generic | Print the kernel release version.
+| uname -p, --processor | x86_64 | Print the processor type, or "unkown".
+| uname -m, --machine | x86_64 | Print the machine hardware name.
+| uname -i, --hardware-platform | x86_64 | Print the hardware platform.
+| uname -o, --operating-system | GNU\Linux | Print the operating system.
+
+### ls - List
+
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+```bash
+
+seriquynh@ubuntu:~$ # ls [-a|--all] - Do not ignore items that begins with "." character.
+seriquynh@ubuntu:~$ # ls -l - Print results in long list format.
+seriquynh@ubuntu:~$ # ls [-R|--recursive] - Also list sub items recursively.
+seriquynh@ubuntu:~$ # ls -Z, --context - Print any SELinux security context of each file.
+seriquynh@ubuntu:~$ # ls -s, --size - Print the allocated size of each file, in blocks.
+```
+
+### cd - Change Directory
+
+Change the working directory.
+
+```bash
+cd other/source # Relative path with current directory.
+cd /path/to/other/source # Absolute path
+cd - # Navigate to the last directory you were working in.
+cd ~ # or just cd Navigate to the current user's home directory.
+cd .. # Go to the parent directory of current directory (mind the space between cd and .. )
+```
