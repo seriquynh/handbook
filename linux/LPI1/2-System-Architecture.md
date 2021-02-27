@@ -39,9 +39,7 @@ modprobe - Modules Probe - To add or remove a module by name
     $ modprobe module_name # Add a module
     $ modprobe [-r | --remove] module_name # Remove a module
 
-## Know the hardware
-
-### /proc
+### /proc - Directory
 - Proc file system (procfs) is virtual file system created on fly when system boots and is dissolved at time of system shut down.
 - It contains the useful information about the processes that are currently running, it is regarded as control and information centre for kernel.
 - The proc file system also provides communication medium between kernel space and user space.
@@ -67,5 +65,83 @@ modprobe - Modules Probe - To add or remove a module by name
 | /proc/filesystems | FILE | Store a filesystem type list currently supported by the kernel
 | /proc/interrupts | FILE | Store the number of interrupts per IRQ on the x86 architecture.
 
-/sys
-- Shows a representation of the physical devices in the machine
+### /sys - Directory shows a representation of the physical devices in the machine
+
+| Sub-Item | Type | Description |
+|----------|------|-------------|
+| /sys/block | DIR |
+| /sys/bus | DIR |
+| /sys/class | DIR |
+| /sys/class/net | DIR |
+| /sys/dev | DIR |
+| /sys/devices | DIR |
+| /sys/fireware | DIR |
+| /sys/fs | DIR |
+| /sys/kernel | DIR | Contain various files and subdirectories that provide information about the running kernel.
+| /sys/module | DIR | Contain subdirectories for each module that is loaded into the kernel.
+
+### /dev - Directory
+
+| File | Description |
+|------|-------------|
+| /dev/zero |
+| /dev/null | A black hole which your data sent to will be not seen again. Anything sent to /dev/null will disappear.
+| /dev/htX | X is an integer.
+| /dev/fd0 | First floppy drive.
+| /dev/srX | The CD-ROM drive.
+| /dev/cdrom | The CD-ROM linked to /dev/sr0
+| /dev/psaux | The PS/2 mouse port
+| /dev/sda |
+| /dev/vda |
+
+```bash
+lshw # List Hardware
+lspci # List PCI - Display PCI buses information and devices connected to them.
+lsusb # List USB - Display USB buses information and devices attached to them.
+```
+
+## Boot the system
+
+MBR - Master Boot Record
+- is located at 1st sector of bootable disk.
+- is less then 512 bytes in size:
+  1. primary boot loader info in 1st 446 bytes: Code (440 bytes), Disk Signature (4 bytes), Nulls (2 bytes)
+  2. partition table info in next 64 bytes: Entries (16 bytes)
+  3. MBR validation check in last 2 bytes.
+- contains GRUB information (or LILO in old systems)
+- loads and execute GRUB boot loader (in simple terms)
+
+### Init process
+
+Init (Initialization) is the first process started during booting computer system. (PID = 1)
+1. Mount root and other filesystems.
+2. Start services.
+3. Start getty and display manager.
+
+| Init System | Description |
+|-------------|-------------|
+| SystemV init | Supported in Linux kernel 2.6.x and earlier releases (CentOS 6 and earlier)
+| Systemd init | Support Linux kernel 3.0 and later (CentOS 7, RHEL 7 and later), Ubuntu 15.04 and later.
+| Upstart | Supported in Ubuntu 14.x and earlier releases.
+
+### dmesg - Print or control the kernel ring buffer
+
+The kernel ring buffer is a data structure that records messages related to the operation of the kernel. A ring buffer is a special kind of buffer that is always a constant size, removing the oldest messages when new messages come in.
+
+| Option | Example | Description |
+|--------|---------|-------------|
+| N/A | dmesg | Diplay all messages from the kernel ring buffer
+| -C, --clear | dmesg -C | Clear the ring buffer
+| -c, --read-clear | dmesg -c | Clear the ring buffer after first printing it's contents.
+| -T, --ctime | dmesg -T | Print human-readable timestamps.
+| -l, --level | dmesg -lerr,warn | Restrict ouput to the given (comma separated) list of levels.
+
+Available levels:
+- emerg - system is unusable
+- alert - action must be taken immediately
+- crit - critical conditions
+- err - error conditions
+- warn - warning conditions
+- notice - normal but significant condition
+- info - informational
+- debug - debug-level messages
