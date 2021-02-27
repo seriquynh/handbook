@@ -59,12 +59,15 @@ pwd -P # Print the physical directory without any symbolic links
 
 ### uname - Print certain system information
 
+Linux localhost.localdomain 3.10.0-1127.el7.x86_64  x86_64 x86_64 x86_64 GNU/Linux
+
 | Option | Output Example | Description |
 |--------|----------------|-------------|
-| uname -a, --all | | Print all information.
+| uname -a, --all | | Print all information in order of these options below (uname -snrvpmio)
 | uname -s, --kernel-name | Linux | Print the kernel name.
-| uname -n, --nodename | web-01 | Print the the network hostname.
-| uname -r, --kernel-release | 4.4.0-87-generic | Print the kernel release version.
+| uname -n, --nodename | localhost.localdomain | Print the the network hostname.
+| uname -r, --kernel-release | 3.10.0-1127.el7.x86_64 | Print the kernel release.
+| uname -v, --kernel-version | #1 SMP Tue Mar 31 23:36:51 UTC 2020 | Print the kernel version.
 | uname -p, --processor | x86_64 | Print the processor type, or "unkown".
 | uname -m, --machine | x86_64 | Print the machine hardware name.
 | uname -i, --hardware-platform | x86_64 | Print the hardware platform.
@@ -116,4 +119,137 @@ Useful to remove an empty directory that is created by a mistake (wrong name for
 
 ```bash
 rm -rf /path/to/file_or_directory # Force to delete file or directory (recursively).
+```
+
+### cp - Copy
+
+| Option | Description |
+|--------|-------------|
+| -a | archive files
+| -f | Force copy by remove desition if neccessary.
+| -i | Interactive - asking before overiting
+| -l | Link instead of copy.
+| -L | Follow symbolic links.
+| -n | No file override.
+| -r, -R, --recursive | Recursive copy directory including hidden files.
+| -u | Update - copy when source is newer than destiation.
+
+```bash
+# Copy a file using relative paths
+cp source.txt dest.txt
+# Copy a file using absolute paths
+cp /path/to/source.txt /path/to/absolute.txt
+# Copy all directories within contents of the source directory to the dest directory
+cp /path/to/source/** /path/to/dest/
+```
+
+```bash
+# /tmp/test1 and /tmp/test2 directories don't exist.
+cd tmp
+mkdir test1
+# /tmp/test2 doesn't exist, so /tmp/test2 will be created and the same with /tmp/test1.
+cp -a test1 test2
+# /tmp/test2 exists, /tmp/test2/test1 will be created and the same with /tmp/test1.
+cp -a test1 test2 # So we should use "cp -a test1 test2/" this means "copy test1 into test2 directory
+```
+
+### mv - Move
+
+| Option | Description |
+|--------|-------------|
+| -f, --force | Always overwrite existing files without prompting. It's helpful if you need to overwrite multiple files whose permissions are ready-only; If you don't use this option, you will be prompted each file.
+| -i, --interactive | Always prompt before overwriting, regardless or file permissions.
+| -n, --no-clobber | Never overwrite any existing file.
+
+### cat and tac - Show file contents
+
+```bash
+echo "1. Thanks for reading" >> /tmp/hello.txt
+echo "2. Have you used Linux" >> /tmp/hello.txt
+# cat <path_to_file>
+cat /tmp/hello.txt # or "cd tmp && cat hello.txt"
+1. Thanks for reading
+2. Have you used Linux
+# tac <path_to_file>
+tac /tmp/hello.txt # or "cd tmp && tac hello.txt"
+2. Have you used Linux
+1. Thanks for reading
+```
+
+### touch - Change file timestamps
+
+```bash
+# It's more helpful to create a new empty file.
+# If hello.txt doesn't exist, it will be created.
+# If hello.txt exists, it's timestamps will be modified.
+touch hello.txt
+```
+
+### head and tail - Display a piece of file content
+
+```bash
+head /var/log/dmesg # Display first 10 lines of /var/log/dmesg
+head -n20 /var/log/dmesg # Display first 20 lines or /var/log/dmesg
+
+tail /var/log/dmesg # Display last 10 lines of /var/log/dmesg
+tail -n20 /var/log/dmesg # Display last 20 lines of /var/log/dmesg
+tail -f /var/log/nginx/access.log # Listen and ouput whenever new lines was addedd to /var/log/nginx/access.log file
+```
+
+### date
+
+```bash
+# Display time by default
+date
+Sat Feb 27 03:34:17 UTC 2021
+# Display time in format
+date +"%Y-%m-%d %H:%M:%S"
+2021-02-27 03:36:23
+# date -s <DATE_STRING>
+# DATE_STRING= "Sun, 29 Feb 2004 16:21:42 -0800" or "2004-02-29 16:21:42" or even "next Thursday"
+```
+
+### timedatectl
+
+```bash
+# Show current settings of the system clock and RTC.
+timedatectl
+      Local time: Sat 2021-02-27 03:42:08 UTC
+  Universal time: Sat 2021-02-27 03:42:08 UTC
+        RTC time: Sat 2021-02-27 03:42:48
+       Time zone: UTC (UTC, +0000)
+     NTP enabled: yes
+NTP synchronized: no
+ RTC in local TZ: no
+      DST active: n/a
+# Show all available timeszones.
+timedatectl list-timezones
+# Set timezone.
+timedatectl set-timezone "Asia/Ho_Chi_Minh"
+# Set time hh:mm:ss
+timedatectl set-time 17:37:57
+# set date yyyy-mm-dd
+timedatectl set-time 2021-02-27
+```
+
+### passwd - Change user password
+
+```bash
+passwd # Change current user password.
+passwd seriquynh # Change password for "seriquynh" user.
+```
+
+### echo - Output something to console
+### hostname and hostnamectl
+
+```bash
+# display hostname
+hostname
+localhost.localdomain
+# Change hostname.
+nmtui hostname Your-New-Host-Name-Here
+hostnamectl set-hostname Your-New-Host-Name-Here
+hostnamectl set-hostname "Your New Host Name Here" --pretty
+hostnamectl set-hostname Your-New-Host-Name-Here --static
+hostnamectl set-homename Your-New-Host-Name-Here --transient
 ```
