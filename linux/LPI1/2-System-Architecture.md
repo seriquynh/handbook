@@ -145,3 +145,56 @@ Available levels:
 - notice - normal but significant condition
 - info - informational
 - debug - debug-level messages
+
+### journalctl
+
+journalctl is a command to view logs collected by systemd. The systemd-journald service is responsible for systemd's log collection, and it retrieves messages from the kernel, systemd services, and other sources.
+
+These logs are gathered in a central location, which makes them easy to review. Log records in journal are structured and indexed. A result journalctl is able to present your log information in a variety of useful formats.
+
+Watch new records that are collected by systemd-journald
+
+```bash
+journalctl -f
+```
+
+Show logs within a Time Range.
+
+```bash
+journalctl --since "2021-02-27 13:13:13"
+journalctl --until "2021-02-27 15:15:15"
+journalctl --since "2021-02-27 13:13:13" --until "2021-02-27 15:15:15"
+```
+
+Show logs for specific boot.
+
+```bash
+journalctl -b # Show logs of the last boot of your server.
+journalctl -b 1 # Show logs of the previous boot of your server.
+journalctl -b 2 # Show logs of the boot right before the previous boot.
+journalctl --list-boots # List available boots.
+```
+
+## Install a boot manager
+
+The /boot directory holds files used in booting the operating system.
+
+| Directory/File | Description |
+|----------------|-------------|
+| File: vmlinuz-* | Linux kernel image
+| File: initramfs-* | The basic iniramfs is the root filesystem image used for booting the kernel (mount and use the RAM-based disk as the initial root filesystem)
+| Directory: efi | UEFI boot loader
+| Directory: grub | GRUB version 1 boot loader configuration
+| Directory: grub2 | GRUB version 2 boot loader configuration
+
+`/boot/grub2/grub.cfg` is default configuration file for GRUB 2.
+
+> Do not change this file directly
+
+All settings related to the GRUB2 will be stored in `/etc/default/grub`.
+
+Regerate the `/boot/grub2/grub.cfg` file by the following command:
+
+```bash
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
