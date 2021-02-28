@@ -198,3 +198,152 @@ Regerate the `/boot/grub2/grub.cfg` file by the following command:
 ```bash
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+
+## Change runlevels / boot targets and shutdown or reboot system
+
+### SystemV init
+
+| ID Run Level | Name | Description |
+|--------------|------|-------------|
+| 0 | Halt | Shutdown the system
+| 1 | Single-user mode | For administrative tasks
+| 2 | Multi-user mode | Does not configure network interfaces and does not export network services. No NFS (Network File System)
+| 3 | Multi-user mode with networking | Start the system normally.
+| 4 | Not used/user-definable | For special purposes.
+| 5 | Start the system normally with appropriate display manager (with GUI) | Same as runlevel 3 + display manager (X11)
+| 6 | Reboot | Reboot the system.
+
+The default runlevel is set in `/etc/inittab` file.
+
+To switch to an another runlevel, use `init` or `telinit` command.
+
+```bash
+telinit 0 # or init 0
+```
+
+| Runlevel | Scripts Directory |
+|----------|-------------------|
+| 0 | /etc/rc.d/rc0.d
+| 1 | /etc/rc.d/rc1.d
+| 2 | /etc/rc.d/rc2.d
+| 3 | /etc/rc.d/rc3.d
+| 4 | /etc/rc.d/rc4.d
+| 5 | /etc/rc.d/rc5.d
+| 6 | /etc/rc.d/rc6.d
+
+- `service` service_name action:
+  - start
+  - stop
+  - reload
+  - restart
+  - force-reload
+  - status
+
+/etc/rc.d/init.d : Red Hat/Fedora/CentOS. Also /etc/init.d which linked to /etc/rc.d/init.d <br>
+/etc/init.d : S.u.s.e <br>
+/etc/init.d : Ubuntu / Debian <br>
+
+```bash
+# /etc/init.d/{service_script_filename} start|stop|status|restart|reload
+# service {service_script_filename} start|stop|status|restart|reload
+
+# Manage httpd service (Apache2 webserver)
+/etc/init.d/httpd start
+/etc/init.d/httpd reload
+/etc/init.d/httpd restart
+/etc/init.d/httpd stop
+
+# Enable/Disable from starting automatically when system startup:
+service {service_script_filename} on
+service {service_script_filename} off
+
+# List state and run level of all services which can be started by init:
+service --status-all
+chkconfig --list
+```
+
+Ctrl + Alt + Delete in /etc/init/control-alt-delete.conf
+
+### Systemd init
+
+1. Basic Unserstanding
+
+| Runlevel (systemV init) | Description | Target (systemd init) |
+|-------------------------|-------------|-----------------------|
+| 0 | Shutdown the system | poweroff.target
+| 1 | Single-user mode | rescue.target
+| 2 | Multi-user mode | multi-user.target
+| 3 | Multi-user mode with networking | multi-user.target
+| 4 | Not used/user-definable | multi-user.target
+| 5 | Start the system normally with appropriate display manager (with GUI). Same as runlevel 3 + display manager (X11) | graphical.target
+| 6 | Reboot the system | reboot.target
+
+/etc/systemd/system : Local configuration - units installed by by the system administrator <br>
+/usr/lib/systemd/system : Installed packages configuration - unites provided by installed packages <br><br>
+
+![Systemd components](../../images/systemd-components.png "Systemd components")
+
+2. Available unit types
+
+| Unit Type | File Extension | Description |
+|-----------|----------------|-------------|
+| Service unit | .service | A system service.
+| Target unit | .target | A group of systemd units.
+| Automount unit | .automount | A file system automount point.
+| Device unit | .device | A device file recognized by the kernel.
+| Mount unit | .mount | A file system mount point.
+| Path unit | .path | A file or directory in a file system.
+| Scope unit | .scope | An externally created process.
+| Slice unit | .slice | A group of hierarchically organized units that manage system proces.
+| Socket unit | .socket | An inter-process communication socket.
+| Swap unit | .swap | A swap device or a swap file.
+| Timer unit | .timer | A systemd timer.
+
+3. Play with **systemctl**
+
+```bash
+# Interact with target
+systemctl get-default # Display the default target
+systemctl set-default [target] # Set the default target
+systemctl isolate [target] # Switch to an another target
+
+# Manage service
+# systemctl status|start|stop|restart|reload [service_name].service
+systemctl status httpd
+systemctl start httpd
+systemctl stop httpd
+systemctl restart httpd
+systemctl reload httpd
+
+# Enable/Disable from starting automatically when system startup:
+# systemctl enable|disable [service_name].service
+systemctl disable httpd
+systemctl enable httpd
+
+# Other commands
+systemctl list-units # List all available units.
+systemctl is-enable httpd # Check whether httpd.service is enabled.
+systemctl is-active httpd # Check whether httpd.service is active (running). Return "active", "inactive" or "unkown"
+systemctl is-failed httpd # Check whether httpd.service is failed. Return "active", "failed" on error or "unknown"
+# systemctl mask [service_name].service
+# systemctl unmask [service_name].service
+systemctl daemon-reload # Reload new configuration and scan for new or changed units.
+systemctl poweroff # Shutdown the system
+
+# shutdown or reboot command
+# shutdown -H, --halt : Halt the machine (Halting involves stopping all CPUs on the system).
+# shutdown -P, --poweroff : Power-off the machine (Powering off involves sending an ACPI command to signal the PSU to disconnect main power).
+# shutdown -r, --reboot : Reboot the machine.
+# shutdown -c : Cancel a pending shutdown.
+# reboot # Reboot the machine immediately.
+shutdown now # Shutdown immediately
+shutdown -r 10
+```
+
+To know Ctrl + Alt + Delete, look at /etc/inittab.
+
+"Ctrl-Alt-Delete" is handle by /usr/lib/systemd/system/ctrl-alt-del.target
+
+### wall command
+
+// TODO:
