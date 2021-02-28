@@ -253,3 +253,45 @@ hostnamectl set-hostname "Your New Host Name Here" --pretty
 hostnamectl set-hostname Your-New-Host-Name-Here --static
 hostnamectl set-homename Your-New-Host-Name-Here --transient
 ```
+
+### wget
+
+A free tool for non-interactive download of files from web. I supports HTTP, HTTPS and FTP, also via HTTP proxies.
+
+```bash
+wget https://getcomposer.org/installer # Download composer installer file.
+wget https://getcomposer.org/installer -O composer-setup.php # Download composer installer file but save as "composer-setup.php" instead of default name from web.
+```
+
+### dd
+
+Useful for creating a large file.
+
+```bash
+# dd if=[input file] of=[output file] bs=[block size] count=[count]
+dd if=/dev/zero of=/tmp/testfile bs=1M count=1024 # Create a file that has size 1MB * 1024 = 1024 MB = 1G
+dd if=/dev/zero of=/tmp/testfile2 bs=512M count=2 # Create a file that has size 512MB * 2 = 1024 MB = 1G
+```
+
+### find - Search for files or directories
+
+```bash
+# -type : Search by type "d" or "f".
+# -name : Search by name.
+# -user : Search by owner.
+# -size : Search by size (MB).
+# -atime, -ctime, -mtime : Search by access, creation or modification days.
+# -amin, -cmin, -mmin: Search by access, creation or modification minutes.
+# -newer FILE : Search for stuff that are newer than FILE. (which is created later will be newer).
+find /tmp -name log # Search for stuff called "log" inside "/tmp" directory.
+find /tmp -type d # Search for directories inside "/tmp" directory.
+find /tmp -type f # Search for files inside "/tmp" directory.
+find /tmp -user seriquynh # Search for stuff whose owner is seriquynh.
+find /tmp -user seriquynh -exec echo "--- {}" \; # Foreach line for "find /tmp -user seriquynh" and pass into {}
+find /var -type d -name log # Search for directory named log inside /var directory.
+find /var/log -name *.log # Search for files (with .log extension) inside /var/log directory.
+find /var/log -name *.log -mtime 30
+find /var/log -name *.log -mtime -30 -mtime +90
+find /var/log -name *.log -cmin -60
+find /var/log -size -50 -size +100
+```
