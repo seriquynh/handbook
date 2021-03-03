@@ -296,3 +296,64 @@ find /var/log -name *.log -mtime -30 -mtime +90
 find /var/log -name *.log -cmin -60
 find /var/log -size -50 -size +100
 ```
+
+## Streams, Redirects and Pipelines
+
+### Streams
+
+| Number | Channel | Description | Default connection | Usage |
+|--------|------|-------------|--------------------|-------|
+| 0 | stdin | Standard input | Keyboard | Read only
+| 1 | stdout | Standard ouput | Terminal | Write only
+| 2 | stderr | Standard error | Terminal | Write only
+| 3+ | filename | Other files | none | read and/or write
+
+### Redirects
+
+| Redirect | Description |
+|----------|-------------|
+| [command] > myfile.txt | Redirect nornal output of a command to "myfile.txt" (overwrite).
+| [command] >> myfile.txt | Redirect nornal ouput of a command to "myfile.txt" (append to end of file).
+| [command] < myfile.txt | Import "myfile.txt".
+
+```bash
+ls -l /tmp > /tmp/myfile.txt # Overite myfile.txt by output from ls command (Create /tmp/myfile if not exist).
+echo "Linux is awesome" >> /tmp/myfile.txt # Append "Linux is awesome" to myfile.txt
+
+echo "/root" > /tmp/rootdir.txt
+ls -l < /tmp/rootdir.txt
+```
+
+| Syntax | Description |
+|-------|-------------|
+| > myfile.txt | Normal ouput to myfile.txt (overwrite), Error output to stderr.
+| >> myfile.txt | Normal output to myfile.txt (append), Error output to stderr.
+| 2> myfile.txt | Normal output to stdout, Error output to myfile.txt.
+| 2> /dev/null | Normal output to stdout, Error output to /dev/null.
+| > myfile.txt 2>&1 | Error output as Normal output to myfile.txt (overwrite).
+| &> myfile.txt | Same as "> myfile.txt 2>&1".
+| >> myfile.txt 2>&1 | Error output as Normal output to myfile.txt (append).
+| &>> myfile.txt | Same as ">> myfile.txt 2>&1".
+
+```bash
+find /etc -name passwd > /tmp/output 2> /dev/null
+# Normal output of "find /etc -name passwd" to /tmp/output file (overwrite).
+# Error output of "find /etc -name passwd" to /dev/null (overwrite).
+```
+
+### Pipelines
+
+The output of previous command will be the input of the next command.
+
+```bash
+# command1 | command2 | command3 : The output of command1 is input for command 2, the output of "command1 | command2" is input for command3.
+ls -l / | grep root # Normal output of "ls -l /" will be the input of "grep root" command.
+cd /tmp
+echo one > filelist.txt
+echo two >> filelist.txt
+echo three >> filelist.txt
+cat filelist.txt | xargs mkdir
+cat filelist.txt | xargs -i rm -rf # Print each command to console.
+cat filelist.txt | xargs -t -I % sh -c 'echo %; mkdir %' # Replace % by input from xargs
+cat filelist.txt | xargs -t -I {} sh -c 'echo {}; mkdir {}' # Replace {} by input from xargs
+```
