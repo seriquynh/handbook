@@ -29,6 +29,8 @@
 | Ctrl + f | Move the cursor to the next position (same as right arrow button).
 | Ctrl + b | Move the cursor back the previous position (same as left arrow button).
 | Ctrl + xx | Move between the beginning of the line and the current position of the cursor.
+| Ctrl + p | Take the previous command, similar to Up arrow key.
+| Ctrl + n | Take the next command, similar to Down arrow key.
 
 ### history
 
