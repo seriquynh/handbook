@@ -321,6 +321,35 @@ unzip -n myfile.zip # Prevent overwiting existing files.
 unzip -P[password] myfile.zip
 ```
 
+A few other commands are bzip/bzip2 (bunzip/bunzip2), gzip/gunzip and xz/unxz.
+
+[Read more](https://unix.stackexchange.com/questions/108100/why-are-tar-archive-formats-switching-to-xz-compression-to-replace-bzip2-and-wha#:~:text=Compared%20to%20bzip2%2C%20xz%20has,uses%20less%20memory%20than%20either.)
+
+### cpio - Copy in, Copy out
+
+```bash
+mkdir /tmp/try-cpio
+cd /tmp/try-cpio
+touch file{1..10}.txt
+# // TODO: could not try on CentOS7
+```
+
+> // TODO: tar command
+
+### wc - Word Count
+
+Count newlines, words, and bytes of input.
+
+```bash
+echo 'Linux is awesome' | wc
+# 1 3 17 : 1 line, 3 words, 17 characters.
+# wc -l, --lines [file] : Print lines count of file.
+# wc -w, --words [file] : Print words count of file.
+# wc -m, --chars [file] : Print chars count of file.
+# wc -c, --bytes [file] : Print total bytes of file.
+# wc -L, --max-line-length [file] : Print the length of the longest line of file.
+```
+
 ## Streams, Redirects and Pipelines
 
 ### Streams
