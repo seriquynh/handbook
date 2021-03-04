@@ -297,6 +297,30 @@ find /var/log -name *.log -cmin -60
 find /var/log -size -50 -size +100
 ```
 
+### zip, unzip
+
+```bash
+# zip [options] [archive_file.zip] [file/directory]
+cd /tmp
+touch file{1..5}.txt
+zip myfile.zip file{1..3}.txt # create myfile.zip and add 3 files to it.
+zip mytmp.zip -r /tmp # create mytmp.zip and add recursively /tmp directory.
+zip myfile2.zip file{1..5}.txt -x file3.txt # create myfile.zip and add files to it exclude file3.txt.
+zip myfile3.zip -e # Ask for password encryption.
+
+mkdir extract
+mv *.zip extract/
+cd extract
+unzip myfile.zip # Extract myfile.zip right here.
+unzip myfile.zip -d mydir # Extract myfile.zip to mydir.
+unzip myfile.zip -d mydir2 -x file1.txt # Exclude file1.txt from extracting.
+unzip -l myfile.zip # List all items inside myfile.zip with details.
+rm -f *.txt
+echo 'file1.txt exists' > file1.txt
+unzip -n myfile.zip # Prevent overwiting existing files.
+unzip -P[password] myfile.zip
+```
+
 ## Streams, Redirects and Pipelines
 
 ### Streams
