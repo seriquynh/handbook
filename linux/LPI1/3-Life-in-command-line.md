@@ -352,6 +352,41 @@ echo 'Linux is awesome' | wc
 # wc -L, --max-line-length [file] : Print the length of the longest line of file.
 ```
 
+### tr - Translate
+
+```bash
+$ echo 'linux is awesome' | tr [a-Z] [A-Z] # lower to upper case.
+LINUX IS AWESOME
+```
+
+### nl
+
+```bash
+# List content of file with line number in the begin of each file.
+ll / | nl
+```
+
+### sort
+
+```bash
+cd /tmp
+echo 'CentOS' > oslist.txt
+echo 'Ubuntu' >> oslist.txt
+echo 'Fedora' >> oslist.txt
+echo 'RedHat' >> oslist.txt
+echo 'Debian' >> oslist.txt
+
+sort oslist.txt
+sort -r oslist.txt
+```
+
+### split
+
+### uniq
+
+### env, export
+
+### which
 ## Streams, Redirects and Pipelines
 
 ### Streams
