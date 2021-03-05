@@ -1,0 +1,23 @@
+Vim edtior has 3 modes:
+- Command Mode: move cursor, copy, paste and delete text.
+- Last Line Mode: search/replace, read/insert files; save; shell commands.
+- Text Input Mode: insert your text.
+
+```bash
+vi [file] # Open a file in vim
+# -R : Edit files ready-only
+# -r : Recover and resume editing on file after an aborted editor session or system crash. Without file, list available files for recovery.
+# -v : Run in full-screen mode.
+# -w [rows] : Set the window size of lines. (that are displayed at time).
+# +[num] : Start editing at line number. Without num, start at the last line.
+# +/[pattern] : Start editing at the first line matching [pattern].
+```
+
+### Save and Exit
+
+- Command Mode: ZZ (doulbe upper case Z): Save and quit
+- Last Line Mode:
+  - :x - Quit vi and write modifications to file.
+  - :wq - Same with :x
+  - :q - Quit vi.
+  - :q! - Quit vi and ignore all modifications.
