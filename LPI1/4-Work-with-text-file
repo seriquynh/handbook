@@ -1,3 +1,5 @@
+## Vim editor
+
 Vim edtior has 3 modes:
 - Command Mode: move cursor, copy, paste and delete text.
 - Last Line Mode: search/replace, read/insert files; save; shell commands.
@@ -51,3 +53,22 @@ h j k l : left down up right
 | D | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
 | r | Replace the character at the cursort.
 | cw | Delete the word right after the cursor and start typing
+
+## Hard and Symbolic links
+
+- Hard Link:
+  - is a new file entry that refers to an existing file on the filesystem.
+  - each file in a filesystem has at least on hard link by default.
+  - to save space, instead of copying, lot of hard links refer to a file can be created.
+  - all hard links pointing to the same file have the same permissions, link count, user/group ownerships, time stamps, and file content
+  - hard links pointing to the same file content need to be on the same file system
+
+- Soft Link (Symbolic Link):
+  - is not a regular file, but a special type of file that points to an existing file or directory.
+  - unlike hard links, soft links can point to a directory.
+  - the target of a soft link points can be on a different file system.
+
+```bash
+ln myfile.txt myfile2.txt
+ln -s myfile.txt myfile3.txt
+```

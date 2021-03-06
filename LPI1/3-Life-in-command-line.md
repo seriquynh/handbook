@@ -387,6 +387,10 @@ sort -r oslist.txt
 ### env, export
 
 ### which
+
+## Manage shared Libraries
+
+// TODO
 ## Streams, Redirects and Pipelines
 
 ### Streams
