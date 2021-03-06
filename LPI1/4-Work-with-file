@@ -21,3 +21,33 @@ vi [file] # Open a file in vim
   - :wq - Same with :x
   - :q - Quit vi.
   - :q! - Quit vi and ignore all modifications.
+
+
+### Switch to Text Input Mode
+
+| Option | Description |
+|--------|-------------|
+| i | Insert at the current cursor position. A line "Linux is awesome", if cursor at position of x character, insert new characters after u.
+| I | Insert at the begin for line. Verfy helpful to comment/uncomment a line.
+| o | Insert a new line below the current line.
+| O | Insert a new line above the current line.
+| a | Insert right after the current cursor position.
+| A | Insert at the end of line.
+| C | Clear text form current cursor position to the end of line, and you can start typing.
+
+### Command Mode
+
+h j k l : left down up right
+
+| Key | Description |
+|-----|-------------|
+| x | Same as "Delete" button.
+| nx | Delete n characters by "Delete" button.
+| X | Same as "Backspace" button.
+| dw | Delete words after the cursor.
+| xdw | Delete n words after the cursor.
+| dd | Double "d" - Delete the current line.
+| ndd | Delete n lines including the current line and (n-1) lines after it.
+| D | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
+| r | Replace the character at the cursort.
+| cw | Delete the word right after the cursor and start typing
