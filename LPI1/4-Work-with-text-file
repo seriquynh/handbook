@@ -85,6 +85,32 @@ vi [file] # Open a file in vim
 
 - 3igo ESC : Insert 3 "go" without repeating typeing.
 
+- Ctrl + f : Page down
+- Ctrl + b : Page Up
+
+## grep - Global regular expression print
+
+Process text line by line and print lines which matches a specific pattern.
+
+```bash
+# grep [option] [pattern] [FILE]
+# [command] | grep [option] [pattern]
+# egrep = grep -E
+```
+
+| Option | Description |
+|--------|-------------|
+| -i, --ignore-case | search with case sensitive, foobar = FOObar = FOOBAR.
+| -c, --count | Print count of matching cases.
+| -v, --invert-match | search for non-matching cases.
+| -q, --quiet, --silent | Exit immediately with 0 if any match is found, even an error is dected.
+| -n, --line-number | Print line number.
+| -H, --with-filename |
+| -R, -r, --recursive | Read directory recursively and search for pattern.
+| -w, --word-regexp | Print lines which matches the hole word.
+| -E, --extended-regexp |
+| --color=[WHEN], --colour=[WHEN] | WHEN = 'never', 'always' or 'auto'
+
 ## Hard and Symbolic links
 
 - Hard Link:

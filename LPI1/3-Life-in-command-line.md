@@ -20,6 +20,7 @@
 | Shift + PageUp | Scroll up screen
 | Shift + PageDown | Scroll down screen
 | Ctrl + u | Delete from the cursor back to the begin of current line.
+| Ctrl + k | Delete from the cursor to the end of current line.
 | Ctrl + w | Delete from the cursor back to the previous word.
 | Ctrl + r | Start a reserve search, through the bash history.Simply type characters that should be unique to the command you want to find in history
 | Ctrl + a | Move the cursor to the begin of current line.
