@@ -391,7 +391,16 @@ sort -r oslist.txt
 
 ## Manage shared Libraries
 
-// TODO
+- static libraries are bound to a program statically at compile time.
+- dynamic or shared libraies are loaded when a program is launched.
+
+```bash
+echo $LD_LIBRARY_PATH
+ldd /bin/ls # Show shared libraries of ls command.
+```
+
+- shared libaries are located in lots of places that slows down loaded time. ldconfig read content of /etc/ld.so.conf and create symbolic links to all library files and put in /etc/ld.so.cache.
+
 ## Streams, Redirects and Pipelines
 
 ### Streams
