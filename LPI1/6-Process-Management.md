@@ -29,6 +29,7 @@ cat /proc/sys/kernel/pid_max
 COMMAND & # End a command with & character to create a background process.
 $ jobs # Show current running jobs in background.
 $ fg job_id # Bring back a job from background to the foreground
+$ # Press Ctrl + Z to bring a foreground process to background.
 ```
 
 When using the command shell, prefixing a command with nohup prevents the command from
