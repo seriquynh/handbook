@@ -39,8 +39,6 @@ vi [file] # Open a file in vim
 
 ### Command Mode
 
-h j k l : left down up right
-
 | Key | Description |
 |-----|-------------|
 | x | Same as "Delete" button.
@@ -51,8 +49,41 @@ h j k l : left down up right
 | dd | Double "d" - Delete the current line.
 | ndd | Delete n lines including the current line and (n-1) lines after it.
 | D | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
-| r | Replace the character at the cursort.
+| r | Replace the character at the cursor.
 | cw | Delete the word right after the cursor and start typing
+| ncw |
+| J |
+| nJ |
+| u | Undo last change.
+| U | Restore current line.
+
+- /[pattern] : Search forward for a pattern.
+- ?[pattern] : Search backword for a pattern.
+- :[%s/[pattern]/[replace]/[gc] : Replace a pattern.
+  - :s/foo/bar/g => Find each occurrence of 'foo' (in the current line only), and replace it with 'bar'.
+  - :%s/foo/bar/g => Find each occurrence of 'foo' (in all lines), and replace it with 'bar'.
+  - :%s/foo/bar/gc => Same with the line above but with confirmation.
+
+- h j k l : left down up right
+- w : Move to the beginning of next word.
+- 5w : Move to the beginning for the next fifth word counted from the current word (0).
+- b : Move back to the beginning of previous word.
+- 5b : Move back to the beginning of the previous fith word counted from the current word (0).
+- e : Move to the end character of the next word.
+- f s : Find s character.
+
+- % : Move between open and close brackets (), [], {}.
+- 0 : Move to the beginning of line.
+- $ : Move to the end of line.
+
+- "*" : Find next word under cursor.
+- "#" : Find previous word under cursor.
+
+- gg : goto the beginning of file.
+- G : goto the end of file.
+- 3, then G: goto the line 3. (Same as :3)
+
+- 3igo ESC : Insert 3 "go" without repeating typeing.
 
 ## Hard and Symbolic links
 
