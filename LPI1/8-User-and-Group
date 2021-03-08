@@ -1,0 +1,38 @@
+A User in Linux system has a unique ID.
+
+- A User ID is a unique positive integer assigned by a Unix-like OS to a specific user. User name is only used for humans.
+- In the Linux kernel 2.4 and older, UIDs are unsigned 32-bit integers that can be from 0 to 4,294,967,296.
+- User root has UID is 0 (zero).
+- UID and sone other information of a user is stored in `/etc/passwd` file.
+- Normal users: Some Linux distributions use UIDs for non-privileged users starts at 100. Others, such as Red Hat, starts at 500, and still others, such Debian/CentOS, starts at 1000.
+
+- UID and GID details can be found at `/etc/login.defs`. Here are id range of user, system user, group and system group.
+
+```bash
+UID_MIN 1000
+UID_MAX 60000
+
+SYS_UID_MIN 100
+SYS_UID_MAX 999
+
+GID_MIN 1000
+GID_MAX 60000
+
+SYS_GID_MIN 100
+SYS_GID_MAX 999
+```
+
+- The default information of a local user when it's created stored in `/etc/default/useradd`:
+
+```bash
+useradd -D
+cat /etc/default/useradd
+```
+
+- To know the supported shells in the system:
+
+```bash
+cat /etc/shells
+```
+
+- `/etc/skel` contains files and directories that is copied to user home directory when it's created.cat
