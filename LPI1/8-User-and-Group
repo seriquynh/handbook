@@ -56,3 +56,46 @@ When a user login:
 - ~/.profile is loaded if it exists and ~/.bash_login doesn't exist.
 - [Login Shell Session]
 - ~/.bash_logout is loaded if it exists.
+
+**/etc/passwd**
+
+```bash
+seriquynh:x:1001:1001:Quynh Nguyen,,,:/home/seriquynh:/bin/bash
+# User info components are separated by : character.
+# 1. Username: seriquynh
+# 2. Password: x character indicates that an encrypted password of user is stored in /etc/shadow
+# 3. UID: 1001 is the user id.
+# 4. GID: 1001 is the primary group id.
+# 5. Description (GECOS field): Free text that describes something about user.
+# 6. Home directory: /home/seriquynh
+# 7. Command/shell: The absolute path of command or shell.
+```
+
+**/etc/shadow**
+
+```bash
+seriquynh:$6$sKeX.ZMv$JeklLgcC3TLYiyQhNU9rTShhYsHOTdl5QUxAN0JHPmjBXHTvy53liE2ucZjtMiPKr9MudAEQ4xhS0LnnM1p0Y0:18691:0:99999:7:::
+# Password info components are separated by : character.
+# 1. Username: seriquynh
+# 2. Encrypted Password.
+# 3. Last password change: Days since Jan 1st, 1970 when the password is last changed.
+# 4. Minimum: 0 days required between two password change moments. If it's 3, the next password change must be 3 days after the last password change.
+# 5. Maximum: 99999 days that password is valid. After that, user has to change his/her password.
+# 6. Warning: 7 days before password expires, system will warn user to change his/her password.
+# 7. Inactive: After n password expires days, user will be disabled.
+# 8. Disabled: until days since Jan 1st, 1970, user is disabled.
+```
+Encrypted password has format $id$salt$hashed
+$id$ = $1$ means MD5 
+$id$ = $2a$ means Blowfish
+$id$ = $2y$ means Blowfish
+$id$ = $5$ means SHA-256
+$id$ = $6$ means SHA-512
+
+### adduser process
+1. A new line is added to /etc/passwd.
+2. A new line is added to /etc/shadow.
+3. A new line is added to /etc/group.
+4. A new line is added to /etc/gshadow
+5. A new user home directory is created inside /home directory, items are copied from /etc/skel
+
