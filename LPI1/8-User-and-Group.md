@@ -86,7 +86,7 @@ seriquynh:$6$sKeX.ZMv$JeklLgcC3TLYiyQhNU9rTShhYsHOTdl5QUxAN0JHPmjBXHTvy53liE2ucZ
 # 8. Disabled: until days since Jan 1st, 1970, user is disabled.
 ```
 Encrypted password has format $id$salt$hashed
-$id$ = $1$ means MD5 
+$id$ = $1$ means MD5
 $id$ = $2a$ means Blowfish
 $id$ = $2y$ means Blowfish
 $id$ = $5$ means SHA-256
@@ -99,7 +99,7 @@ $id$ = $6$ means SHA-512
 4. A new line is added to /etc/gshadow
 5. A new user home directory is created inside /home directory, items are copied from /etc/skel
 
-### useradd
+### useradd - User Add
 
 ```bash
 $ useradd [--option] <username>
@@ -108,7 +108,7 @@ $ useradd [--option] <username>
 | Option | Description |
 |--------|-------------|
 | -u, --uid **UID** | The user id (positive integer >= UID_MIN)
-| -g, --gid **GUI** | The primary group name or id.
+| -g, --gid **GROUP** | The primary group name or id.
 | -c, --comment **COMMENT** | The data for description field in /etc/password file.
 | -d, --home-dir **HOME_DIR** | The path to home directory (regularly under /home).
 | -s, --shell **SHELL** |
@@ -117,8 +117,38 @@ $ useradd [--option] <username>
 | -M, --no-create-home | Create user without home directory.
 | -k, --skel **SKEL_DIR** | User home directory will be copied from **SKEL_DIR** instead of /etc/skel directory.
 
-### usermod
+### usermod - User Modify
 
 ```bash
 $ usermod [option] username
+```
+
+| Option | Description |
+|--------|-------------|
+| -u, --uid **UID** |
+| -g, --gid **GROUP** |
+| -c, --comment **COMMENT** |
+| -d, --home-dir **HOME_DIR** |
+| -s, --shell **SHELL** |
+| -G, --groups **G1,G2** |
+| -k, --skel **SKEL_DIR** |
+| -L, --lock | Lock user password, can not use with -p or -U option
+| -p, --password **PASSWORD** |
+| -e, --expiredate **EXPIREDATE** | Set the date or number of days since Jan 1st 1970 when the user is disabled.
+| -f, --inactive **INACTIVE** | Set the number of days of inactivity after a password has expired before the account is locked.
+| -m, --move-home |
+| -U, --unlock |
+
+### userdel - User Delete
+
+```bash
+$ userdel [option] username
+# -r, --remove : Home and email spool directory will be deleted. Other files has to be searched and deleted manually.
+# -f, --force : Force to delete a user even it's in a login shell session.
+```
+
+### chage - Change Age
+
+```bash
+$ chage [option] username
 ```
