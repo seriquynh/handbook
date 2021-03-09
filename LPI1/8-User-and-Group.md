@@ -80,7 +80,7 @@ seriquynh:$6$sKeX.ZMv$JeklLgcC3TLYiyQhNU9rTShhYsHOTdl5QUxAN0JHPmjBXHTvy53liE2ucZ
 # 2. Encrypted Password.
 # 3. Last password change: Days since Jan 1st, 1970 when the password is last changed.
 # 4. Minimum: 0 days required between two password change moments. If it's 3, the next password change must be 3 days after the last password change.
-# 5. Maximum: 99999 days that password is valid. After that, user has to change his/her password.
+# 5. Maximum: 99999 days after last chage day that password is valid. After that, user has to change his/her password.
 # 6. Warning: 7 days before password expires, system will warn user to change his/her password.
 # 7. Inactive: After n password expires days, user will be disabled.
 # 8. Disabled: until days since Jan 1st, 1970, user is disabled.
