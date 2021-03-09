@@ -36,3 +36,23 @@ cat /etc/shells
 ```
 
 - `/etc/skel` contains files and directories that is copied to user home directory when it's created.cat
+
+| File | Description |
+|------|-------------|
+| /etc/profile | Startup file for all users, exec with login shell (run automatically when login).
+| ~/.bash_profile | Startup file for specific user, exec with login shell.
+| ~/.bash_login |
+| ~/.profile |
+| ~/.bash_logout | Run when user logout shell session.
+| /etc/bash.bashrc |
+| ~/.bashrc |
+
+/etc/profile is always loaded.
+
+When a user login:
+
+- ~/.bash_profile is loaded if it exists.
+- ~/.bash_login is loaded if it exists and ~/.bash_profile doesn't exist.
+- ~/.profile is loaded if it exists and ~/.bash_login doesn't exist.
+- [Login Shell Session]
+- ~/.bash_logout is loaded if it exists.
