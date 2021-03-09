@@ -99,3 +99,26 @@ $id$ = $6$ means SHA-512
 4. A new line is added to /etc/gshadow
 5. A new user home directory is created inside /home directory, items are copied from /etc/skel
 
+### useradd
+
+```bash
+$ useradd [--option] <username>
+```
+
+| Option | Description |
+|--------|-------------|
+| -u, --uid **UID** | The user id (positive integer >= UID_MIN)
+| -g, --gid **GUI** | The primary group name or id.
+| -c, --comment **COMMENT** | The data for description field in /etc/password file.
+| -d, --home-dir **HOME_DIR** | The path to home directory (regularly under /home).
+| -s, --shell **SHELL** |
+| -G, --groups **G1,G2** | The group list that user belongs to.
+| -m, --create-home | Create user home directory.
+| -M, --no-create-home | Create user without home directory.
+| -k, --skel **SKEL_DIR** | User home directory will be copied from **SKEL_DIR** instead of /etc/skel directory.
+
+### usermod
+
+```bash
+$ usermod [option] username
+```
