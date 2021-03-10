@@ -425,6 +425,15 @@ sort -r oslist.txt
 
 // TODO
 
+### paste
+
+```bash
+cd /tmp
+echo -e "Jan\nFeb\nMar" >> m_name.txt
+echo -e "1\n2\n3" > m_number.txt
+paste m_name.txt n_number.txt
+```
+
 ### uniq
 
 Filter or report duplicate lines of a file.
@@ -450,7 +459,40 @@ ldd /bin/ls # Show shared libraries of ls command.
 
 ## Process text streams using filters
 
-// TODO
+### cut
+
+```bash
+$ # cut [option] [file]
+$ cp /etc/passwd /tmp/passwd
+$ cut -d ':' -f 1,2,3,4 /tmp/passwd
+$ cut -b 1,2,3 /tmp/passwd
+```
+
+| Option | Description |
+|--------|-------------|
+| -d, --delimiter=[CHAR] | Use a specific delimiter instead of tab.
+| -c, --characters=[CHARS] | Select only specific characters.
+| -b, --bytes=[BYTES] | Select only specific bytes.
+| -f, --fields=[FIELDS] | Select only specific fields.
+| -s, --only-delimited | Do not show lines which don't contain delimiter.
+
+### sed - Stream Editor
+
+```bash
+# sed [option] [script] [file]
+# -n, --quiet, --silent :
+# -e, --expression [SCRIPT] : Add a script to commands to be executed.
+# -f, --file=[SCRIPT_FILE] : Add a script file to commands to be executed.
+
+sed G sed_demo.txt # Add a blank line after each line of sed_demo.txt
+sed 1d sed_demo.txt # Remove the line 1 of sed_demo.txt
+sed 1,3 sed_demo.txt # Remove from line 1 to 3 of sed_demo.txt
+sed "/pattern/d" sed_demo.txt # Remove lines which match pattern.
+sed "/^$/d" sed_demo.txt # Remove blank lines.
+sed "s/unix/linux/" sed_demo.txt # Replace "unix" case-sensitive by "linux".
+sed "s/unix/linux/i" sed_demo.txt # Replace "unix" case-insensitive by "linux".
+```
+
 ## Streams, Redirects and Pipelines
 
 ### Streams
