@@ -25,4 +25,39 @@ $ echo "Hello Quynh"
 $ printf "Hello %s" "QuynhNX"
 ```
 
-// TODO
+## Special variables of an executing script.
+
+```bash
+#!/usr/bin/env bash
+
+echo 'The script name is' $0
+
+echo 'The process ID (PID) is' $$
+
+echo 'The arguments count is' $#
+
+echo 'The last command exit status is' $?
+
+echo 'The last command process ID is' $!
+
+echo 'All arguments are double quoted' $*
+
+echo 'All arguments are individually double quoted' $@
+```
+
+## Read variable from standard input.
+
+```bash
+#!/usr/bin/env bash
+
+echo "What is your name?"
+read NAME
+echo "My name is $NAME"
+
+read -p "How old are you? " AGE
+echo "I am $AGE years old."
+
+# -a
+# -e
+# -t : timeout
+```
