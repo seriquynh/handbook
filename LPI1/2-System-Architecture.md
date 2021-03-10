@@ -346,4 +346,8 @@ To know Ctrl + Alt + Delete, look at /etc/inittab.
 
 ### wall command
 
-// TODO:
+Send a message to all users on terminal.
+
+```bash
+$ wall "Hello! I am studing Linux."
+```

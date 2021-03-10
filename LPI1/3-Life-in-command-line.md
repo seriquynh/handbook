@@ -337,7 +337,47 @@ touch file{1..10}.txt
 # // TODO: could not try on CentOS7
 ```
 
-> // TODO: tar command
+### tar, zcat, bzcat, xzcat
+
+- tar is used to compress or extract gzip, bzip2 or xz file.
+- zcat is used to view contents of a gzip file.
+- bzcat is used to view contents of a bzip2 file.
+- xzcat is used to view contents of a xz file.
+
+```bash
+$ tar [option] [filename.extension] [directory]
+
+# Compress
+$ tar -cvf backup.tar /source/data
+$ tar -cvf backup.tar.gz /source/data # gzip is used by default.
+$ tar -czvf backup.tar.gz /source/data
+$ tar -czvf backup.tgz
+
+$ tar -cjvf backup.tar.bz2 /source/data
+$ tar -cjvf backup.tar.tbz /source/data
+$ tar -cjvf backup.tar.tbs /source/data
+
+# Extract
+$ tar -xvf backup.tar
+$ tar -xvf backup.tar -C /source/restores
+$ tar -tvf backup.tar
+```
+
+| Option | Description |
+|--------|-------------|
+| -c | Create new file
+| -C | Change directory when extracting.
+| -f | archive file
+| -x | extract file
+| -j | bzip2
+| -J | xz
+| -z, --gzip, --gunzip | gzip
+| -v | verbose
+| -t | list contents of an archive.
+
+### md5sum, sha256sum, sha512sum
+
+Hash a file, useful to verify a download file isn't changed.
 
 ### wc - Word Count
 
@@ -353,7 +393,7 @@ echo 'Linux is awesome' | wc
 # wc -L, --max-line-length [file] : Print the length of the longest line of file.
 ```
 
-### tr - Translate
+### tr - Translate a single character to an another one.
 
 ```bash
 $ echo 'linux is awesome' | tr [a-Z] [A-Z] # lower to upper case.
@@ -383,11 +423,18 @@ sort -r oslist.txt
 
 ### split
 
+// TODO
+
 ### uniq
 
+Filter or report duplicate lines of a file.
 ### env, export
 
+- env : List current defined environment variables.
+- export : Set an enviroment variable in current shell session.
 ### which
+
+- Find the absolute path of a binary of an executable program.
 
 ## Manage shared Libraries
 
@@ -401,6 +448,9 @@ ldd /bin/ls # Show shared libraries of ls command.
 
 - shared libaries are located in lots of places that slows down loaded time. ldconfig read content of /etc/ld.so.conf and create symbolic links to all library files and put in /etc/ld.so.cache.
 
+## Process text streams using filters
+
+// TODO
 ## Streams, Redirects and Pipelines
 
 ### Streams
