@@ -334,8 +334,9 @@ A few other commands are bzip/bzip2 (bunzip/bunzip2), gzip/gunzip and xz/unxz.
 mkdir /tmp/try-cpio
 cd /tmp/try-cpio
 touch file{1..10}.txt
-# // TODO: could not try on CentOS7
 ```
+
+// TODO: haven't try yet
 
 ### tar, zcat, bzcat, xzcat
 
@@ -423,7 +424,19 @@ sort -r oslist.txt
 
 ### split
 
-// TODO
+```bash
+# split [option] [file] [prefix]
+# -l : Use number of lines to split.
+# -b : Use number of KB, MB or GB to split.
+# -d : Use numeric suffix instead of alphabets.
+# -n : Split the file into n chunks.
+
+cp /etc/passwd /tmp/passwd.txt
+cd /tmp
+split -l5 passwd.txt # Split passwd.txt into chunks (5 lines per chunk) and save to xaa, xab, xac,... files
+split -l5 passwd.txt my_splitfile_
+split -b50K # split passwd.txt into chunks (50KB per chunk).
+```
 
 ### paste
 
