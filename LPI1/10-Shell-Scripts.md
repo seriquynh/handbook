@@ -57,7 +57,36 @@ echo "My name is $NAME"
 read -p "How old are you? " AGE
 echo "I am $AGE years old."
 
-# -a
-# -e
+# -p : Prompt input with trailing newline
+# -a : Assign words read into an array
+# -e :
 # -t : timeout
+```
+
+## Bash variable scope
+
+```bash
+cat bash_demo.sh
+#!/bin/bash
+echo "SOMEVAR=$SOMEVAR"
+SOMEVAR=UNIX
+echo "SOMEVAR=$SOMEVAR
+
+./bash_demo.sh
+SOMEVAR=Linux ./bash_demo.sh
+export SOMEVAR=Linux; ./bash_demo.sh
+./bash_demo.sh
+```
+
+> Use declare command to declare a variable in bash. With it, we can limit the value assigned to the variables, restricts the properties of variables
+
+## test
+
+Check file types and compare values.
+
+```bash
+test -f /etc/passwd && echo 'File exists'
+test -f /foo/bar/baz || echo "File doesn't exist"
+test 1 -gt 2 && echo 'true' || echo 'false'
+test 3 -gt 2 && echo 'true' || echo 'false'
 ```

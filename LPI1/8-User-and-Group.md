@@ -152,3 +152,36 @@ $ userdel [option] username
 ```bash
 $ chage [option] username
 ```
+
+### su - Substitude user
+
+```bash
+# su [option] [username]
+# -, -l, --login :
+# -c, --command : The command to run
+# -s, --shell :  The specific shell instead of default shell (defined in /etc/passwd).
+```
+
+### id
+
+Find user and group names and ids.
+
+```bash
+$ id seriquynh
+uid=1001(seriquynh) gid=1001(seriquynh) groups=1001(seriquynh)
+$ id someoneelse
+id: someoneelse: no such user
+```
+
+### lid
+
+```bash
+$ lid seriquynh # List groups which seriquynh belongs to.
+
+$ lid -g stuff
+ jessica(uid=1003)
+ steven(uid=1004)
+ putin(uid=1005)
+```
+
+// TODO: to be continued
