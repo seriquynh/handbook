@@ -24,7 +24,6 @@ vi [file] # Open a file in vim
   - :q - Quit vi.
   - :q! - Quit vi and ignore all modifications.
 
-
 ### Switch to Text Input Mode
 
 | Option | Description |
@@ -110,6 +109,43 @@ Process text line by line and print lines which matches a specific pattern.
 | -w, --word-regexp | Print lines which matches the hole word.
 | -E, --extended-regexp |
 | --color=[WHEN], --colour=[WHEN] | WHEN = 'never', 'always' or 'auto'
+
+## awk - Alfred Aho, Peter Weinberger, and Brian Kernighan
+
+```bash
+# awk [-F fs] [-v var=value] ['prog'|-f profile] [file]
+# -F fs : Set the input field separator to the regular expression fs.
+# -v var=value : Assign value for variable "var" before executing awk.
+# -f file : Specify a file, profile which contains awk program to be executed.
+# 'prog' : An awk program.
+```
+
+- $0 : The whole line.
+- $1 : The first field.
+- $2 : The second field.
+- $3 : The third field.
+
+```bash
+echo "Linux is awesome. I am studing Linux" | awk '{print $1 " " $3 " " $7}' # "Linux awesome. Linux"
+awk -F : '{print $1}' /etc/passwd
+echo | awk -v home=$HOME '{print "My home dir is " home}' # "My home dir is /root"
+echo "Linux is awesome." | awk '{$2="is very"; $3="AWESOME."; print $0}' # "Linux is very awesome."
+
+echo '{print "The home dir of " $1 " is " $6}' > /tmp/awk_demo.awk
+awk -F: -f /tmp/awk_demo.awk /etc/passwd
+```
+
+Built-in variables:
+- FIELDWIDTH : The field width.
+- FS : The field separator.
+- RS : The record separator.
+- OFS : The output field separator.
+- ORS : The output record separator.
+
+```bash
+awk 'BEGIN{FS=":"; OFS="-"} {print $1,$6,$7}' /etc/passwd # Use ":" as separator to process, use "-" to join fields.
+awk 'BEGIN{FS=":"; OFS="-"; ORS=""} {print $1,$6,$7}' /etc/passwd # Use ":" as separator to process, use "-" to join fields, use empty string to join lines.
+```
 
 ## Hard and Symbolic links
 
