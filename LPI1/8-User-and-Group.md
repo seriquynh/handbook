@@ -57,6 +57,8 @@ When a user login:
 - [Login Shell Session]
 - ~/.bash_logout is loaded if it exists.
 
+## User Management
+
 **/etc/passwd**
 
 ```bash
@@ -184,4 +186,37 @@ $ lid -g stuff
  putin(uid=1005)
 ```
 
-// TODO: to be continued
+### lslogins
+
+Display information about known users in the system.
+
+## Group Management
+
+Group information is kept in `/etc/group` file:
+
+```bash
+stuff:x:1006:jessica,steven,putin
+# 1. Group name : stuff
+# 2. Password : x means /etc/gshadow exists
+# 3. Group ID: 1006
+# 4. Member list.
+
+groupadd linux # Add a new group
+groupdel linux # Delete a new group
+```
+
+```text
+username/group servername = (usernames to run as) command
+
+%wheel ALL = (ALL) ALL # Allow users in whell group to run all commands on all servers.
+seriquynh ALL = (ALL) ALL # On all servers, allow user seriquynh to run all commands as any other.
+seriquynh ALL = (ALL) NOPASSWD: ALL
+```
+
+- sudo command allows permitted users to execute a command as the superuser (root) or any other.
+
+```bash
+sudo -u jessica -g stuff mkdir /tmp/newdir
+```
+
+Command Alias, User Alias and Host alias

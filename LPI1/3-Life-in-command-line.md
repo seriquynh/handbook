@@ -234,6 +234,8 @@ timedatectl set-timezone "Asia/Ho_Chi_Minh"
 timedatectl set-time 17:37:57
 # set date yyyy-mm-dd
 timedatectl set-time 2021-02-27
+# enable/disable ntp
+timedatectl set-ntp 0 # or 1
 ```
 
 ### passwd - Change user password
