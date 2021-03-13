@@ -78,9 +78,11 @@ export SOMEVAR=Linux; ./bash_demo.sh
 ./bash_demo.sh
 ```
 
-> Use declare command to declare a variable in bash. With it, we can limit the value assigned to the variables, restricts the properties of variables
+### declare
 
-## test
+// TODO
+
+### test
 
 Check file types and compare values.
 
@@ -89,4 +91,109 @@ test -f /etc/passwd && echo 'File exists'
 test -f /foo/bar/baz || echo "File doesn't exist"
 test 1 -gt 2 && echo 'true' || echo 'false'
 test 3 -gt 2 && echo 'true' || echo 'false'
+```
+
+### expr
+
+```bash
+expr 1 + 1
+```
+
+## Control Strcuture
+
+```bash
+if [statement];
+then
+    command1
+    command2
+fi
+
+if [statement];
+then
+    command1
+    command2
+else
+    command3
+    command4
+fi
+
+if [statement1];
+then
+    command1
+elif [statement2];
+    command2
+else
+    command3
+fi
+
+case $var in
+    val1)
+        statements
+        ;;
+    *)
+        statements
+        ;;
+esac
+
+while [condition];
+do
+    commands
+done
+
+for VAR in {1..5}
+do
+    echo "The current value is $VAR."
+done
+
+for VAR in {10..0..2}
+do
+    echo "The current value is $VAR."
+done
+
+OS_LIST="Unix Windows Linux"
+for OS in $OS_LIST
+do
+    echo -e "$OS\n"
+done
+
+OS_LIST="Unix Windows Linux"
+PS3="Choose your favourite OS:"
+select OS in $OS_LIST
+do
+    echo "Your choice is $OS."
+done
+
+seq 1 2 10 # 1,3,5,7,9
+seq -s "," 1 9 # 1,2,3,4,5,6,7,8,9
+```
+
+| Operator | Example | Description |
+|----------|---------|-------------|
+| -eq | [ $A -eq $B ] | Check whether $A equals to $B
+| -ne | [ $A -nq $B ] | Check whether $A doesn't equal to $B
+| -gt | [ $A -gt $B ] | greater than (>).
+| -lt | [ $A -lt $B ] | less than (<).
+| -ge | [ $A -ge $B ] | greater than or equal to (>=).
+| -le | [ $A -le $B ] | less than or equal to (<=).
+| ==  | [ $A == $B ] |
+| !=  | [ $A != $B ] |
+| -z  | [ -z $A ] | Check whether the $A is an empty string or not defined string.
+| -n  | [ -n $A ] | Check whether the $A is not empty.
+
+```bash
+[ 2 -gt 1 ]; echo $? # 0
+[ 2 -gt 3 ]; echo $? # 1
+[ 3 -gt 2 ] && [ 3 -gt 1 ]; echo $?
+[ 3 -gt 2 ] || [ 3 -gt 1 ]; echo $?
+```
+
+## Function
+
+```bash
+#!/usr/bin/env bash
+hello () {
+    echo "Have you seen? Hello $1 and $2."
+}
+
+hello you me
 ```
