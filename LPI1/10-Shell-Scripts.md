@@ -197,3 +197,55 @@ hello () {
 
 hello you me
 ```
+
+## Schedule
+
+### crontab
+
+```bash
+crontab -l # List cronjobs of current logged user.
+crontab -e # Edit cronjobs of current logged user.
+crontab -r # Delete crontab.
+crontab -u seriquynh -l # List cronjobs of seriquynh.
+crontab -u seriquynh -e # Edit cronjobs of seriquynh.
+```
+
+```bash
+# * * * * * command-to-execute
+# minute       : 0-59
+# hour         : 0-23
+# day of month : 1-31
+# month        : 1-12
+# day of week  : 0-7 (both 0 and 7 mean Sunday)
+
+# Hourly : Run at minute 0 every hour.
+0 * * * * command-to-execute
+# Daily : Run at 0:00 every day.
+0 0 * * * command-to-execute
+# Weekly (Sunday) : Run at 0:00 every Sunday.
+0 0 * * 0 command-to-execute
+# Monthly : Run at 0:00, only in the first day of each month.
+0 0 1 * * command-to-execute
+# Yearly : Run at 0:00, only in January 1st of each year.
+0 0 1 1 * command-to-execute
+```
+
+| Symbol | Description | Example |
+|--------|-------------|---------|
+| * | Any value |
+| , | explicit value list | 0,30 * * * * : Run at minute 0 and 30 each hour.
+| - | value range | 1-5 * * * * : Run every minute from 1 to 5 each hour.
+| / | step value | */15 * * * * : Run at minute 0, 15, 30, 45 every hour. (Every 15th minute)
+| @yearly | non-standard |
+| @annually | non-standard |
+| @monthly | non-standard |
+| @weekly | non-standard |
+| @daily | non-standard |
+| @hourly | non-standard |
+| @reboot | non-standard |
+
+### at, atq, atrm
+
+- at : Run command(s) once at a feature time.
+
+// TODO: Haven't tried
