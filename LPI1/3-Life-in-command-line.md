@@ -226,7 +226,7 @@ timedatectl
 NTP synchronized: no
  RTC in local TZ: no
       DST active: n/a
-# Show all available timeszones.
+# Show all available timeszones. (See /usr/share/zoneinfo)
 timedatectl list-timezones
 # Set timezone.
 timedatectl set-timezone "Asia/Ho_Chi_Minh"
