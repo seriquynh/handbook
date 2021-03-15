@@ -4,6 +4,14 @@ A summary I have studied from IT world.
 
 - https://books.goalkicker.com/LinuxBook/
 
+## Interesting Repositories
+
+| Repository | Description |
+|------------|-------------|
+| https://github.com/ossu/computer-science | Path to a free self-taught education in Computer Science!
+| https://github.com/sherlock-project/sherlock | Hunt down social media accounts by username across social networks
+
+
 ## Setup Simple Linux Server
 
 Originally from [Servers For Hackers](https://serversforhackers.com/s/fresh-server-security-setup)
