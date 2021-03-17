@@ -80,7 +80,7 @@ A world-writable space for temporary files. Files which have not been accessed, 
 
 ### /usr - User Binaries & Read-Only Data
 
-This directory contains applications and files used by users.
+This directory contains applications and files used by users. This directory is meant for files that aren't changed after installation (in theory, /usr could be mounted read-only).
 
 /usr/bin ~ /bin, /usr/lib ~ /lib, /usr/sbin ~ /sbin
 
@@ -91,7 +91,7 @@ Installed software, shared libraries, include files, and static read-only progra
 
 ### /var - Variable Data Files
 
-This directory is writable counterpart to the /usr directory, which must be read-only in normal operation.
+This directory is writable counterpart to the /usr directory, which must be read-only in normal operation. This directory contains stuff that is changed often.
 
 ## Other Directories
 
@@ -130,5 +130,9 @@ If your Linux distribution uses SELinux for security (Fedora and Red Hat, for ex
 ### /srv - Service Data
 
 This directory contains “data for services provided by the system.” If you were using the Apache HTTP server to serve a website, you’d likely store your website’s files in a directory inside the /srv directory.
+
+### /sys
+
+This directory contains parameters for such things as tuning block storage and managing cgroups.
 
 > Read more at https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained
