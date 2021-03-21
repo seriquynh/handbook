@@ -1,4 +1,4 @@
-A summary I have studied from IT world.
+# A summary I have studied from IT world.
 
 ## Must-read books
 
@@ -131,42 +131,4 @@ adduser <username>
 
 # Add created user to sudo group.
 usermod -aG sudo <username>
-```
-
-### Reset MySQL root password.
-
-```bash
-sudo service mysql stop
-sudo mkdir /var/run/mysqld
-sudo chown mysql: /var/run/mysqld
-sudo mysqld_safe --skip-grant-tables --skip-networking &
-mysql -uroot mysql
-
-# UPDATE mysql.user SET authentication_string=PASSWORD('ENTER_YOUR_PASSWORD_HERE'), plugin='mysql_native_password' WHERE User='root';
-# EXIT;
-
-sudo mysqladmin -S /var/run/mysqld/mysqld.sock shutdown
-
-sudo service mysql start
-```
-
-### Create a new MySQL database with a specific user
-
-```
-CREATE USER 'someone'@'localhost' IDENTIFIED BY 'secret';
-CREATE DATABASE somedatabase;
-GRANT ALL PRIVILEGES ON somedatabase.* TO 'someone'@'localhost';
-```
-
-### Create a new mysql container
-
-```bash
-docker run --name mysql-5.7 \
-    -e MYSQL_ROOT_PASSWORD=secret \
-    -e MYSQL_DATABASE=test \
-    -e MYSQL_USER=seriquynh \
-    -e MYSQL_PASSWORD=secret \
-    --detach -p 3306:3306 \
-    -v mysql-5.7:/var/lib/mysql \
-    mysql:5.7
 ```
