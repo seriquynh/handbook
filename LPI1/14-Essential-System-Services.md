@@ -39,4 +39,36 @@ allow 172.16.0.0/24
 
 ## System Logging
 
+Logs in Linux can be classified into four types:
+- Application logs
+- Event logs
+- Service logs
+- System logs
+
+| Log file | Description |
+|----------|-------------|
+| /var/log/messages | Store generic system activity logs (informative and non-critical system messages).
+| /var/log/auth.log | All authentication events for Debian and Ubuntu.
+| /var/log/secure | For RedHat and CentOS based systems.
+| /var/log/boot.log | Messages during the system startup process.
+
+### dmesg
+
+> Refers to "2-System-Architecture"
+
+### journaling (journalctl)
+
+> Refers to "2-System-Architecture"
+
+### rsyslog - Rocket-fast system for log processing.
+
+// TODO
+
+## Mail Transfer Agent (MTA) basics
+
+// TODO
+
+## Manage printers and printing
+
+// TODO
 
