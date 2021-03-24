@@ -17,18 +17,7 @@ Vim edtior has 3 modes:
 # +/[pattern] : Start editing at the first line matching [pattern].
 ```
 
-### Adding text
-
-| Command | Description |
-|--------|-------------|
-| a | Insert to the right of the cursor position.
-| A | Insert at the end of the current line.
-| i | Insert to the left of the cursor position.
-| I | Insert at the begin of the current line line. Verfy helpful to comment/uncomment a line.
-| o | Insert a new line below the current line.
-| O | Insert a new line above the current line.
-
-### Moving around
+### Moving
 
 - h j k l : left down up right
 - w : Move to the begin of next word.
@@ -48,38 +37,7 @@ Vim edtior has 3 modes:
 - Ctrl + f : Page down
 - Ctrl + b : Page Up
 
-### Delete, copy or change text
-
-| Key | Switch to input mode |Description |
-|-----|---------|------------|
-| x | | Delete the character under the cursor. Same as "Delete" button.
-| X | | Delete the character right before the cursor. Same as "Backspace" button.
-| dw |  | Delete word - Delete word after the cursor.
-| db | | Delete work before the cursor.
-| dd | | Double "d" - Delete the current line.
-| c$ | yes | Change characters from the cursor to the end of line. ($ is the end of line).
-| c0 | yes | Change characters from the cursor to the begin of line. (0 is the begin of line).
-| cl | yes | Change the current letter (at the cursor position).
-| cc | yes | Erase the current line.
-| C | yes | Change characters from the cursor to the end of line. (Same as c$).
-| yy | | Cut the whole current line.
-| y) | | Copy the current sentense, to the right of the cursor, into the buffer.
-| Y} | | Copy the current paragraph, to the right of the cursor, into the buffer.
-| D | | Delete from the cursor to the end of line.
-| r | | Replace the character at the cursor.
-| cw | yes | Delete the word right after the cursor and start typing.
-| J |
-| u | | Undo last change.
-| U | | Restore current line.
-
-### Save and Exit
-
-- Command Mode: ZZ (doulbe upper case Z): Save and quit
-- Last Line Mode:
-  - :x - Quit vi and write modifications to file.
-  - :wq - Same with :x
-  - :q - Quit vi.
-  - :q! - Quit vi and ignore all modifications.
+### Searching
 
 - /[pattern] : Search forward for a pattern.
 - ?[pattern] : Search backword for a pattern.
@@ -90,7 +48,65 @@ Vim edtior has 3 modes:
 
 - "*" : Find next word under cursor.
 - "#" : Find previous word under cursor.
+
+### Adding
+
+| Command | Description |
+|--------|-------------|
+| a | Insert to the right of the cursor position.
+| A | Insert at the end of the current line.
+| i | Insert to the left of the cursor position.
+| I | Insert at the begin of the current line line. Verfy helpful to comment/uncomment a line.
+| o | Insert a new line below the current line.
+| O | Insert a new line above the current line.
+
+### Delete, Change or Copy
+
+| Key | Switch to input mode |Description |
+|-----|---------|------------|
+| x | | Delete the character under the cursor. Same as "Delete" button.
+| X | | Delete the character right before the cursor. Same as "Backspace" button.
+| dw |  | Delete word after the cursor.
+| db | | Delete word before the cursor.
+| dd | | Double "d" - Delete the current line.
+| D | | Delete from the cursor to the end of line.
+| c$ | yes | Change characters from the cursor to the end of line. ($ is the end of line).
+| c0 | yes | Change characters from the cursor to the begin of line. (0 is the begin of line).
+| cl | yes | Change the current letter (at the cursor position).
+| cc | yes | Erase the current line.
+| C | yes | Change characters from the cursor to the end of line. (Same as c$).
+| cw | yes | Delete the word right after the cursor and start typing.
+| r | | Replace the character at the cursor.
+| J |
+| u | | Undo the last change.
+| U | | Restore the changed line.
+| yy | | Copy the current line.
+| y) | | Copy the current sentense, to the right of the cursor, into the buffer.
+| Y} | | Copy the current paragraph, to the right of the cursor, into the buffer.
+
+
+### Pasting
+
+After using cut/copy text command, Use p/P to paste it back into the file:
+
+- p :
+  - If the copied text consists lines of text, it will be put below the current line.
+  - If the copied text consists of letters or words, it will be put to the right of the cursor position.
+
+- P :
+  - If the copied text consists lines of text, it will be put above the current line.
+  - If the copied text conststs of letters or words, it will be put to the left of the cursor position.
+### Others
+
 - 3igo ESC : Insert 3 "go" without repeating typeing.
+
+### Exiting
+
+- ZZ (doulbe upper case Z): Save and quit
+- :x - Quit vi and write modifications to file.
+- :wq - Same with :x
+- :q - Quit vi.
+- :q! - Quit vi and ignore all modifications.
 
 ## grep - Global regular expression print
 
