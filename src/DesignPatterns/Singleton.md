@@ -1,21 +1,17 @@
-https://sourcemaking.com/design_patterns
+# Singleton
 
-## Creational
-
-### Singleton
-
-#### Usage
+## Usage
 
 - Ownership of the single instance cannot be reasonably assigned
 - Lazy initialization is desirable
 - Global access is not otherwise provided for
 
-#### Intent
+## Intent
 
 - Ensure a class has only one instance, and provide a global point of access to it.
 - Encapsulated "just-in-time initialization" or "initialization on first use".
 
-#### Checklist
+## Checklist
 
 1. Define a private/protected static attribute in the "single instance" class.
 2. Define a public static accessor function in the class.
