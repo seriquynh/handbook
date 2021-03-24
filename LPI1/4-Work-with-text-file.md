@@ -1,4 +1,5 @@
 # Work with text file
+
 ## Vim editor
 
 Vim edtior has 3 modes:
@@ -61,20 +62,15 @@ Vim edtior has 3 modes:
 | cl | yes | Change the current letter (at the cursor position).
 | cc | yes | Erase the current line.
 | C | yes | Change characters from the cursor to the end of line. (Same as c$).
-| yy | | Copy the current line.
-| y) | | // TODO
-| Y} | | // TODO
-| xdw | | Delete n words after the cursor.
-| ndd | | Delete n lines including the current line and (n-1) lines after it.
-| D | | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
+| yy | | Cut the whole current line.
+| y) | | Copy the current sentense, to the right of the cursor, into the buffer.
+| Y} | | Copy the current paragraph, to the right of the cursor, into the buffer.
+| D | | Delete from the cursor to the end of line.
 | r | | Replace the character at the cursor.
-| cw | | Delete the word right after the cursor and start typing
-| ncw |
+| cw | yes | Delete the word right after the cursor and start typing.
 | J |
-| nJ |
 | u | | Undo last change.
 | U | | Restore current line.
-| C | | Clear text from current cursor position to the end of line, and you can start typing.
 
 ### Save and Exit
 
