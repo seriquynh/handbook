@@ -1,8 +1,9 @@
 # A summary I have studied from IT world.
 
-## Must-read books
+## Book Recommendation
 
-- https://books.goalkicker.com/LinuxBook/
+- [Linux commands Notes for Professional](https://books.goalkicker.com/LinuxBook/)
+- Linux Bible
 
 ## Interesting Repositories
 
