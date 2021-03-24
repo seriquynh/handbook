@@ -1,3 +1,4 @@
+# Work with text file
 ## Vim editor
 
 Vim edtior has 3 modes:
@@ -6,7 +7,7 @@ Vim edtior has 3 modes:
 - Text Input Mode: insert your text.
 
 ```bash
-vi [file] # Open a file in vim
+# vi [file] Open a file in vim
 # -R : Edit files ready-only
 # -r : Recover and resume editing on file after an aborted editor session or system crash. Without file, list available files for recovery.
 # -v : Run in full-screen mode.
@@ -14,6 +15,66 @@ vi [file] # Open a file in vim
 # +[num] : Start editing at line number. Without num, start at the last line.
 # +/[pattern] : Start editing at the first line matching [pattern].
 ```
+
+### Adding text
+
+| Command | Description |
+|--------|-------------|
+| a | Insert to the right of the cursor position.
+| A | Insert at the end of the current line.
+| i | Insert to the left of the cursor position.
+| I | Insert at the begin of the current line line. Verfy helpful to comment/uncomment a line.
+| o | Insert a new line below the current line.
+| O | Insert a new line above the current line.
+
+### Moving around
+
+- h j k l : left down up right
+- w : Move to the begin of next word.
+- 5w : Move to the begin for the next fifth word counted from the current word (0).
+- b : Move back to the begin of previous word.
+- 5b : Move back to the begin of the previous fith word counted from the current word (0).
+- e : Move to the end character of the next word.
+- % : Move between open and close brackets (), [], {}.
+- 0 : Move to the begin of line.
+- $ : Move to the end of line.
+- H : Move the cursor to the upper-left corner of the screen.
+- L : Move the cursor to the lower-left corner of the screen.
+- M : Move the cursor to the first character of the middle line on the screen.
+- gg : goto the begin of file.
+- G : goto the end of file.
+- Press 3, then G: goto the line 3. (Same as :3)
+- Ctrl + f : Page down
+- Ctrl + b : Page Up
+
+### Delete, copy or change text
+
+| Key | Switch to input mode |Description |
+|-----|---------|------------|
+| x | | Delete the character under the cursor. Same as "Delete" button.
+| X | | Delete the character right before the cursor. Same as "Backspace" button.
+| dw |  | Delete word - Delete word after the cursor.
+| db | | Delete work before the cursor.
+| dd | | Double "d" - Delete the current line.
+| c$ | yes | Change characters from the cursor to the end of line. ($ is the end of line).
+| c0 | yes | Change characters from the cursor to the begin of line. (0 is the begin of line).
+| cl | yes | Change the current letter (at the cursor position).
+| cc | yes | Erase the current line.
+| C | yes | Change characters from the cursor to the end of line. (Same as c$).
+| yy | | Copy the current line.
+| y) | | // TODO
+| Y} | | // TODO
+| xdw | | Delete n words after the cursor.
+| ndd | | Delete n lines including the current line and (n-1) lines after it.
+| D | | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
+| r | | Replace the character at the cursor.
+| cw | | Delete the word right after the cursor and start typing
+| ncw |
+| J |
+| nJ |
+| u | | Undo last change.
+| U | | Restore current line.
+| C | | Clear text from current cursor position to the end of line, and you can start typing.
 
 ### Save and Exit
 
@@ -24,38 +85,6 @@ vi [file] # Open a file in vim
   - :q - Quit vi.
   - :q! - Quit vi and ignore all modifications.
 
-### Switch to Text Input Mode
-
-| Option | Description |
-|--------|-------------|
-| i | Insert at the current cursor position. A line "Linux is awesome", if cursor at position of x character, insert new characters after u.
-| I | Insert at the begin for line. Verfy helpful to comment/uncomment a line.
-| o | Insert a new line below the current line.
-| O | Insert a new line above the current line.
-| a | Insert right after the current cursor position.
-| A | Insert at the end of line.
-| C | Clear text form current cursor position to the end of line, and you can start typing.
-
-### Command Mode
-
-| Key | Description |
-|-----|-------------|
-| x | Same as "Delete" button.
-| nx | Delete n characters by "Delete" button.
-| X | Same as "Backspace" button.
-| dw | Delete words after the cursor.
-| xdw | Delete n words after the cursor.
-| dd | Double "d" - Delete the current line.
-| ndd | Delete n lines including the current line and (n-1) lines after it.
-| D | Delete from the cursor to the end of line. Similar to C but don't switch to Text Input Mode.
-| r | Replace the character at the cursor.
-| cw | Delete the word right after the cursor and start typing
-| ncw |
-| J |
-| nJ |
-| u | Undo last change.
-| U | Restore current line.
-
 - /[pattern] : Search forward for a pattern.
 - ?[pattern] : Search backword for a pattern.
 - :[%s/[pattern]/[replace]/[gc] : Replace a pattern.
@@ -63,29 +92,9 @@ vi [file] # Open a file in vim
   - :%s/foo/bar/g => Find each occurrence of 'foo' (in all lines), and replace it with 'bar'.
   - :%s/foo/bar/gc => Same with the line above but with confirmation.
 
-- h j k l : left down up right
-- w : Move to the beginning of next word.
-- 5w : Move to the beginning for the next fifth word counted from the current word (0).
-- b : Move back to the beginning of previous word.
-- 5b : Move back to the beginning of the previous fith word counted from the current word (0).
-- e : Move to the end character of the next word.
-- f s : Find s character.
-
-- % : Move between open and close brackets (), [], {}.
-- 0 : Move to the beginning of line.
-- $ : Move to the end of line.
-
 - "*" : Find next word under cursor.
 - "#" : Find previous word under cursor.
-
-- gg : goto the beginning of file.
-- G : goto the end of file.
-- 3, then G: goto the line 3. (Same as :3)
-
 - 3igo ESC : Insert 3 "go" without repeating typeing.
-
-- Ctrl + f : Page down
-- Ctrl + b : Page Up
 
 ## grep - Global regular expression print
 
