@@ -21,3 +21,4 @@ There are a few categories I am interested in. For each one, I read books, take 
 | https://github.com/nhn/tui.calendar | A JavaScript calendar that has everything you need.
 | https://github.com/beyondcode/invoker-test-toolkit | Detect, run and evaluate your applications PHPUnit tests in Invoker
 | https://github.com/digitalocean/nginxconfig.io | NGINX config generator on steroids
+| https://github.com/lux4rd0/weatherflow-dashboards-aio | An All-In-One WeatherFlow logging and dashboarding project 
