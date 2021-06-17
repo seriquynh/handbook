@@ -59,9 +59,3 @@ apt install fail2ban -y
     $ sudo vim /etc/hosts # and replace '127.0.1.1 old-host-name' with '127.0.1.1 new-host-name'
 
     $ hostnamectl set-hostname ubuntu
-
-## Get the directory (absolute path) contains calling script
-
-    #!/bin/bash
-
-    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
